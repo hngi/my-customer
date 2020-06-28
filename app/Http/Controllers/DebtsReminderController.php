@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class TransactionsController extends Controller
+class DebtsReminderController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -68,7 +68,7 @@ class TransactionsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        return 'hello world';
+        //
     }
 
     /**

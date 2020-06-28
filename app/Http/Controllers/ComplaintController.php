@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Complaints;
 use Illuminate\Http\Request;
 
-class TransactionsController extends Controller
+class ComplaintController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -40,10 +41,10 @@ class TransactionsController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Complaints  $complaints
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Complaints $complaints)
     {
         //
     }
@@ -51,10 +52,10 @@ class TransactionsController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Complaints  $complaints
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Complaints $complaints)
     {
         //
     }
@@ -63,21 +64,21 @@ class TransactionsController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Complaints  $complaints
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Complaints $complaints)
     {
-        return 'hello world';
+        //
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Complaints  $complaints
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Complaints $complaints)
     {
         //
     }

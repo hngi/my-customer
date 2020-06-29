@@ -14,7 +14,8 @@ class TransactionController extends Controller
      */
     public function index()
     {
-        //
+
+        return view('backend.transactions.index');
     }
 
     /**

@@ -20,6 +20,9 @@ use Illuminate\Support\Facades\Route;
  */
 Route::get('/login', 'Auth\LoginController@storeOwnerLogin')->name('login');
 Route::get('/register', 'Auth\RegisterController@storeOwnerRegister')->name('register');
+Route::get('email/verify', 'Auth\VerificationController@show')->name('verification.notice');
+Route::get('/email/resend', 'Auth\VerificationController@resend')->name('verification.resend');
+Route::get('/email/verify/{id}/{hash}', 'Auth\VerificationController@verify')->name('verification.verify');
 Route::post('/login', 'Auth\LoginController@login'); //this will be changed in future to => store/login, user/login
 Route::post('/register', 'Auth\RegisterController@register');
 Route::post('/logout', 'Auth\RegisterController@logout')->name('logout');
@@ -38,7 +41,7 @@ Route::group(['prefix' => 'dashboard', 'middleware' => ['auth']], function () {
     Route::get('/analytics', 'AnalyticsController@index')->name('analytics');
     Route::get('/debts', 'DebtsController@index')->name('debts.reminder');
     Route::get('/broadcast', 'BroadcastController@index')->name('broadcast');
-    Route::get('/settings', 'SettingsContrller@index')->name('settings');
+    Route::get('/settings', 'SettingsController@index')->name('settings');
     Route::get('/user/all', 'UserController@index')->name('users');
     Route::get('/user/{id}', 'UserController@view')->name('user.view');
     Route::get('/assistants/add', 'AssistantsController@index')->name('assistants.add');

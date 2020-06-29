@@ -72,6 +72,6 @@ class RegisterController extends Controller
     }
 
     public function storeOwnerRegister(){
-        return view('auth.store.register');
+        return view('auth.store.signup');
     }
 }

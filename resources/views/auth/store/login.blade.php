@@ -102,7 +102,7 @@
 
                         <div class="row mt-3">
                             <div class="col-12 text-center">
-                                <p class="text-muted">Dont have an account <a href="/admin/register"
+                                <p class="text-muted">Dont have an account <a href="{{ route('register') }}"
                                         class="text-primary font-weight-bold ml-1">Sign Up</a></p>
                             </div> <!-- end col -->
                         </div>

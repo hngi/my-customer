@@ -26,20 +26,27 @@
 
                                         <h6 class="h5 mb-0 mt-4 text-center">Register</h6>
 
-                                        <form action="{{route('register')}}" class="authentication-form" method="POST">
+                                        <form action="{{ route('register')}} " class="authentication-form" method="POST">
                                             @csrf
                                             <div class="form-group">
                                                 <label class="form-control-label">First Name</label>
                                                 <div class="input-group input-group-merge">
-                                                    <input type="text" id="first_name" name="first_name" class="form-control" required>
+                                                    <input type="text" id="first_name" name="first_name" class="form-control @error('first_name') is-invalid @enderror" 
+                                                    value="{{ old('first_name') }}" required autocomplete="first_name" autofocus required>
+                                                    @error('first_name')
+                                                        <span class="invalid-feedback" role="alert">
+                                                            <strong>{{ $message }}</strong>
+                                                        </span>
+                                                    @enderror
                                                 </div>
+
                                                 <label class="form-control-label">Last Name</label>
                                                 <div class="input-group input-group-merge">
-                                                    <input type="text" id="last_name" name="last_name" class="form-control" required>
+                                                    <input type="text" id="last_name" name="last_name" value="{{ old('last_name') }}" class="form-control @error('last_name') is-invalid @enderror" required>
                                                 </div>
                                                 <label class="form-control-label">Email</label>
                                                 <div class="input-group input-group-merge">
-                                                    <input type="email" id="email" name="email" class="form-control" required>
+                                                    <input type="email" id="email" name="email" value="{{ old('email') }}" class="form-control @error('email') is-invalid @enderror" required>
                                                 </div>
                                                 <label class="form-control-label">Password</label>
                                                 <div class="input-group input-group-merge">
@@ -50,7 +57,7 @@
                                                     <div class="input-group-prepend">
 
                                                     </div>
-                                                    <input type="tel" id="phone" name="phone_number" class="form-control" required>
+                                                    <input type="tel" id="phone" name="phone_number" value="{{ old('phone_number') }}" class="form-control" required>
                                                 </div>
                                             </div>
 

@@ -18,10 +18,10 @@
 Fork The Repo And Clone Your Fork
 
 ```bash
-cd sentry-my-customer-frontend
+cd my-customer
 ```
 ```bash
-git remote add upstream https://github.com/hngi/sentry-my-customer-frontend.git
+git remote add upstream https://github.com/hngi/my-customer.git
 ```
 
 ```bash

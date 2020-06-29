@@ -1,0 +1,2 @@
+Route::get('/auth/verify', 'VerifyController@index');
+Route::post('/auth/verify', 'VerifyController@verify');

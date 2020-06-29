@@ -28,11 +28,11 @@
                                             access admin panel.</p>
                                         
                                         @if($errors->any())
-                                            <p class="alert alert-danger">
-                                            @foreach ($errors->all() as $error)
-                                                <li>{{ $error }}</li>
-                                            @endforeach
-                                            </p>
+                                            <ul class="alert alert-danger">
+                                                @foreach ($errors->all() as $error)
+                                                    <li>{{ $error }}</li>
+                                                @endforeach
+                                            </ul>
                                         @endif
 
                                         <form method="POST" action="{{ url('/login') }}" class="authentication-form">

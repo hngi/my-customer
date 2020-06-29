@@ -2,7 +2,6 @@
 @section("custom_css")
 
 <link href="/backend/assets/build/css/intlTelInput.css" rel="stylesheet" type="text/css" />
-
 @stop
 
 
@@ -29,11 +28,11 @@
                                             access admin panel.</p>
                                         
                                         @if($errors->any())
-                                            @foreach ($errors->any() as $error)
+                                            @foreach ($errors as $error)
                                                 <p class="alert alert-danger">{{ $error }}</p>
                                             @endforeach
                                         @endif
-                                        
+
                                         <form method="POST" action="{{ url('/login') }}" class="authentication-form">
                                                 @csrf
                                             <div class="form-group">

@@ -3,7 +3,7 @@
     <nav>
         <div class="container nav">
             <div class="nav__brand">
-                <a href="#" class="nav__brand__logo"><img src="{{ ('/frontend/assets/images/fulllogo.png') }}" alt=""
+                <a href="{{ url('/') }}" class="nav__brand__logo"><img src="{{ ('/frontend/assets/images/fulllogo.png') }}" alt=""
                         height="auto" /></a>
             </div>
             <div class="nav__menu">
@@ -18,14 +18,14 @@
                 </div>
             </div>
             <div class="nav__button__container">
-                     @if(!isset($_COOKIE['api_token']))
-                <button class="nav__button "><a href="/admin/login" class="nav__button__link">Log In</a></button>
-                <button class="nav__button btn-nav-active"><a href="{{ route('signup') }}"
-                        class="nav__button__link__active">Sign
-                        Up</a></button>
-                @elseif(isset($_COOKIE['api_token']))
+                @if (Auth::check()) 
                     <button class="nav__button btn-nav-active"><a href="{{ route('logout') }}"
                         class="nav__button__link__active">Logout</a></button>
+                @else
+                    <button class="nav__button "><a href="{{ route('login') }}" class="nav__button__link">Log In</a></button>
+                    <button class="nav__button btn-nav-active"><a href="{{ route('register') }}"
+                            class="nav__button__link__active">Sign
+                            Up</a></button>
                 @endif
             </div>
             <div class="hamburger-container">
@@ -59,7 +59,7 @@
                            @if(!isset($_COOKIE['api_token']))
                     <button class="mobile__nav__button"><a href="{{ route('login') }}" class="mobile__nav__button__link">Log
                             In</a></button>
-                    <button class="mobile__nav__button"><a href="{{ route('signup') }}" class="mobile__nav__button__link">Sign
+                    <button class="mobile__nav__button"><a href="{{ route('register') }}" class="mobile__nav__button__link">Sign
                             Up</a></button>
                     @elseif(isset($_COOKIE['api_token']))
                     <button class="mobile__nav__button"><a href="{{ route('logout') }}" class="mobile__nav__button__link">Logout</a></button>

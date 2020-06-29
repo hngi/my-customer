@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Transaction;
 use Illuminate\Http\Request;
 
 class TransactionsController extends Controller
@@ -68,7 +69,20 @@ class TransactionsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        return 'hello world';
+        $transaction = Transaction::find($id);
+
+        if($transaction) {
+            $transaction->amount = $request->input('amouny');
+            $transaction->interes = $request->input('interest');
+            $transaction->total_amount = $request->input('total_amount');
+            $transaction->expected_pay_date = $request->input('expected_pay_date');
+
+            $transaction->save();
+
+            return redirect('/transaction/all')->with('message', 'Transaction was updated successfully');
+        } else {
+            return redirect('/transaction/new')->with('message', 'The transaction cannot be found');
+        }
     }
 
     /**

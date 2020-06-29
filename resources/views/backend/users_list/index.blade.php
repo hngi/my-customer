@@ -7,10 +7,9 @@
 @stop
         @section('content')
                 <div class="content">
-                    <a href="#" class="float" data-toggle="modal"
-                                                    data-target="#myModal">
-<i class="fa fa-plus my-float" ></i>
-</a>
+                    <a href="#" class="float" data-toggle="modal" data-target="#myModal">
+                        <i class="fa fa-plus my-float" ></i>
+                    </a>
                     <div class="container-fluid">
                         <div class="row page-title">
                             <div class="col-md-12">

@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\User;
+use Exception;
 use Illuminate\Http\Request;
+use Illuminate\Pagination\Paginator;
 
 class UserController extends Controller
 {
@@ -12,10 +14,27 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         //
-    }
+        $users = [];
+        try {
+            $users = User::all();
+            $users = json_decode(json_encode($users),true);
+        } catch (Exception  $e) {
+            // log error
+        }
+
+        $perPage = 10;
+        $page = $request->get('page', 1);
+        if ($page > count($users) or $page < 1) {
+            $page = 1;
+        }
+        $offset = ($page * $perPage) - $perPage;
+        $tableData = array_slice($users, $offset, $perPage);
+        $data = new Paginator($tableData, count($users), $perPage);
+        return view('backend.users_list.index')->with('response', $data->withPath('/'.$request->path()));
+        }
 
     /**
      * Show the form for creating a new resource.

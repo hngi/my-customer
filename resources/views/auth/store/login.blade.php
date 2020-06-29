@@ -28,43 +28,49 @@
                                         <p class="text-muted mt-1 mb-4">Enter your phone number and password to
                                             access admin panel.</p>
 
-                                            @if(Session::has('message') || $errors->any())
-                                            <p class="alert {{ Session::get('alert-class', 'alert-danger') }}">{{ Session::get('message') }}</p>
-                                            @endif
-
-                                        <form action="{{ route('login.authenticate') }}" class="authentication-form" method="POST">
-                                            @csrf
+                                        <form method="POST" action="{{ url('/login') }}" class="authentication-form">
+                                                @csrf
                                             <div class="form-group">
                                                 <label class="form-control-label">Phone Number</label>
                                                 <div class="input-group input-group-merge">
                                                     <div class="input-group-prepend">
 
                                                     </div>
-                                                    <input type="tel" id="phone" name="phone_number" class="form-control" required>
-
+                                                    <input type="tel" id="phone" name="phone_number" class="form-control @error('phone_number') is-invalid @enderror" value="{{ old('phone_number') }}" required autofocus>
+                                                    @error('phone_number')
+                                                        <span class="invalid-feedback" role="alert">
+                                                            <strong>{{ $message }}</strong>
+                                                        </span>
+                                                    @enderror
                                                 </div>
                                             </div>
 
                                             <div class="form-group mt-4">
                                                 <label class="form-control-label">Password</label>
-                                            <a href="{{ url('/admin/recoverPassword') }}"
-                                                    class="float-right text-muted text-unline-dashed ml-1">Forgot your
-                                                    password?</a>
+                                                    <a href="{{ url('/admin/recoverPassword') }}"
+                                                        class="float-right text-muted text-unline-dashed ml-1">Forgot your
+                                                        password?</a>
                                                 <div class="input-group input-group-merge">
                                                     <div class="input-group-prepend">
                                                         <span class="input-group-text">
                                                             <i class="icon-dual" data-feather="lock"></i>
                                                         </span>
                                                     </div>
-                                                    <input type="password" name="password" class="form-control" id="password"
-                                                        placeholder="Enter your password" required>
+                                                    <input type="password" name="password" class="form-control @error('password') is-invalid @enderror" value="{{ old('password') }}" 
+                                                        id="password" placeholder="Enter your password" required>
+                                                    
+                                                    @error('password')
+                                                        <span class="invalid-feedback" role="alert">
+                                                            <strong>{{ $message }}</strong>
+                                                        </span>
+                                                    @enderror
                                                 </div>
                                             </div>
 
                                             <div class="form-group mb-4">
                                                 <div class="custom-control custom-checkbox">
-                                                    <input type="checkbox" class="custom-control-input"
-                                                        id="checkbox-signin" checked>
+                                                    <input type="checkbox" name="remember" class="custom-control-input"
+                                                        id="checkbox-signin" {{ old('remember') ? 'checked' : '' }}>
                                                     <label class="custom-control-label" for="checkbox-signin">Remember
                                                         me</label>
                                                 </div>

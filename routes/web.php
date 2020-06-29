@@ -13,7 +13,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Auth::routes();
+// Auth::routes();
+
+/**
+ * Authentication Routes
+ */
+Route::get('/login', 'LoginController@storeOwnerLogin')->name('login');
+Route::get('/register', 'RegisterController@storeOwnerRegister')->name('register');
+Route::post('/login', 'LoginController@login'); //this will be changed in future to => store/login, user/login
+Route::post('/register', 'LoginController@register');
 
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('/about', 'HomeController@about')->name('about');

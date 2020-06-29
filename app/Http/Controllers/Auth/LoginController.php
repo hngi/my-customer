@@ -37,4 +37,15 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
+
+    public function storeOwnerLogin(){
+        return view('auth.store.login');
+    }
+
+    /**
+     * Our custom auth username
+     */
+    public function username(){
+        return 'phone_number';
+    }
 }

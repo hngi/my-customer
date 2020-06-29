@@ -28,4 +28,4 @@ Route::get('/about', 'HomeController@about')->name('about');
 Route::get('/faq', 'HomeController@faq')->name('faq');
 Route::get('/contact', 'HomeController@contact')->name('contact');
 
-Route::get('/dashboard', 'HomeController@home')->name('dashboard');
+Route::get('/dashboard', 'DashboardController@home')->name('dashboard');

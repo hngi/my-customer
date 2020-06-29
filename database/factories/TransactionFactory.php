@@ -2,7 +2,7 @@
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 
-use App\User;
+use App\Transaction;
 use Faker\Generator as Faker;
 use Illuminate\Support\Str;
 
@@ -17,15 +17,16 @@ use Illuminate\Support\Str;
 |
 */
 
-$factory->define(User::class, function (Faker $faker) {
+$factory->define(Transaction::class, function (Faker $faker) {
     return [
-        'first_name' => $faker->name,
-        'email' => $faker->unique()->safeEmail,
-        'email_verified_at' => now(),
-        'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
-        'remember_token' => Str::random(10),
-        'user_ref_id' => 002,
-        'phone_number' => $faker->phone,
-        'role' => $faker->role,
+        'ts_ref_id' => "MC001B",
+        'ref_transaction_type' => "purchase",
+        'customer_ref_code' => 004,
+        'amount' => 20000,
+        'interest' => "coding",
+        'total_amount' => "54000",
+        'expected_pay_date' => $faker->date,
+        'user_ref_id' => 1,
+        'store_ref_id' => 1
     ];
 });

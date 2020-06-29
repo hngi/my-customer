@@ -4,7 +4,6 @@
 @section('content')
 
 
-
 <div class="account-pages my-5">
     <div class="container-fluid">
         <div class="row-justify-content-center">
@@ -33,7 +32,7 @@
                                                             <i class="icon-dual" data-feather="lock"></i>
                                                         </span>
                                                     </div>
-                                                    <input type="text" class="form-control" id="password" >
+                                                    <input type="text" class="form-control" id="" >
                                                 </div>
                                                 </div>
                                             </div>
@@ -98,66 +97,16 @@
                                 </thead>
 
                                 <tbody>
+                                @foreach ($transactions as $transaction)
                                     <tr>
-                                        <td>GI671B</td>
-                                        <td>Receivables</td>
-                                        <td>C1290D</td>
-                                        <td>$500.00</td>
-                                        <td>25th July, 2020</td>
-                                        <td><a href="/admin/transactions/5ef0959539c5f01c875d2b6b"><i data-feather="eye"></i></a></td>
-
+                                        <td>{{ $transaction->ts_ref_id }}</td>
+                                        <td>{{ $transaction->ref_transaction_type }}</td>
+                                        <td>{{ $transaction->customer_ref_code }}</td>
+                                        <td>&#36; {{ $transaction->amount }}</td>
+                                        <td>{{ date('d M Y', strtotime($transaction->expected_pay_date)) }}</td>
+                                        <td><a href="{{ route('transaction.show', $transaction->id) }}"><i data-feather="eye"></i></a></td>
                                     </tr>
-                                    <tr>
-                                        <td>GI671B</td>
-                                        <td>Paid</td>
-                                        <td>C12ADS</td>
-                                        <td>$500.00</td>
-                                        <td>25th July, 2020</td>
-                                        <td><a href="/admin/transactions/5ef0959539c5f01c875d2b6b"><i data-feather="eye"></i></a></td>
-
-
-                                    </tr>
-                                    <tr>
-                                        <td>GI671B</td>
-                                        <td>Receivables</td>
-                                        <td>C1D90F</td>
-                                        <td>$500.00</td>
-                                        <td>25th July, 2020</td>
-                                        <td><a href="/admin/transactions/5ef0959539c5f01c875d2b6b"><i data-feather="eye"></i></a></td>
-
-
-                                    </tr>
-
-                                    <tr>
-                                        <td>GI671B</td>
-                                        <td>Debt</td>
-                                        <td>C1294E</td>
-                                        <td>$500.00</td>
-                                        <td>25th July, 2020</td>
-                                        <td><a href="/admin/transactions/5ef0959539c5f01c875d2b6b"><i data-feather="eye"></i></a></td>
-
-                                    </tr>
-
-                                    <tr>
-                                        <td>GI671B</td>
-                                        <td>Receivables</td>
-                                        <td>C1290D</td>
-                                        <td>$500.00</td>
-                                        <td>25th July, 2020</td>
-                                        <td><a href="/admin/transactions/5ef0959539c5f01c875d2b6b"><i data-feather="eye"></i></a></td>
-
-                                    </tr>
-
-                                    <tr>
-                                        <td>GI671B</td>
-                                        <td>Paid</td>
-                                        <td>C1290D</td>
-                                        <td>$500.00</td>
-                                        <td>25th July, 2020</td>
-                                        <td><a href="/admin/transactions/5ef0959539c5f01c875d2b6b"><i data-feather="eye"></i></a></td>
-
-                                    </tr>
-
+                                @endforeach
                                 </tbody>
                             </table>
                         </div>

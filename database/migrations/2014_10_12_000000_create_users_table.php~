@@ -24,7 +24,12 @@ class CreateUsersTable extends Migration
             $table->string('facebook_id')->nullable();
             $table->string('phone_number');
             $table->boolean('is_active')->default(0);
+<<<<<<< HEAD
+            $table->string('user_role');
+            $table->string('api_token')->nullable();
+=======
             $table->string('role')->default('user');
+>>>>>>> aba521fd6fb6d5d7450c65021a83a76d3cc64b5e
             $table->rememberToken();
             $table->timestamps();
         });

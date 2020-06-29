@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\User;
+use App\Transaction;
 use Illuminate\Http\Request;
 
-class UserController extends Controller
+class TransactionController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,9 +14,9 @@ class UserController extends Controller
      */
     public function index()
     {
-        //
-        $Users = User::paginate(10);
-        return view('backend.users_list.index', compact('Users'));
+        $transactions = Transaction::latest()->paginate(5);
+  
+        return view('backend.transactions.index', compact('transactions'));
 
     }
 
@@ -44,10 +44,10 @@ class UserController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\User  $user
+     * @param  \App\Transaction  $transaction
      * @return \Illuminate\Http\Response
      */
-    public function show(User $user)
+    public function show(Transaction $transaction)
     {
         //
     }
@@ -55,10 +55,10 @@ class UserController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\User  $user
+     * @param  \App\Transaction  $transaction
      * @return \Illuminate\Http\Response
      */
-    public function edit(User $user)
+    public function edit(Transaction $transaction)
     {
         //
     }
@@ -67,10 +67,10 @@ class UserController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\User  $user
+     * @param  \App\Transaction  $transaction
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, User $user)
+    public function update(Request $request, Transaction $transaction)
     {
         //
     }
@@ -78,10 +78,10 @@ class UserController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\User  $user
+     * @param  \App\Transaction  $transaction
      * @return \Illuminate\Http\Response
      */
-    public function destroy(User $user)
+    public function destroy(Transaction $transaction)
     {
         //
     }

@@ -21,7 +21,7 @@ class CreateTransactionsTable extends Migration
             $table->string('amount');
             $table->string('interest');
             $table->string('total_amount');
-            $table->string('expected_pay_date');
+            $table->dateTime('expected_pay_date');
             $table->string('user_ref_id');
             $table->string('store_ref_id');
             $table->timestamps();

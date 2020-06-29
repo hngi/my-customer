@@ -30,8 +30,8 @@ class VerifyController extends Controller
             'token' => 'required|numeric|digits:6',
         ])->validate();
 
-        // $user_id = Auth::id();
-        $user_id = 1;
+        $user_id = Auth::id();
+        // $user_id = 1;
         $token = $request->input('token');
         $otp = OTP::where('user_ref_code', '=', $user_id)->where('otp_code', '=', $token)->get();
         if (sizeof($otp) > 0) {

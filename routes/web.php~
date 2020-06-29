@@ -16,12 +16,3 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-
-Route::get('/login', function () {
-    return view('backend.login');
-});
-
-Route::group(['prefix' => 'auth'], function () {
-    Route::get('/facebook', 'Facebook@toFacebook');
-    Route::get('/facebook/callback', 'Facebook@callback');
-});

@@ -32,7 +32,7 @@
                                             <p class="alert {{ Session::get('alert-class', 'alert-danger') }}">{{ Session::get('message') }}</p>
                                             @endif
 
-                                        <form action="" class="authentication-form" method="POST">
+                                        <form action="{{ route('login.authenticate') }}" class="authentication-form" method="POST">
                                             @csrf
                                             <div class="form-group">
                                                 <label class="form-control-label">Phone Number</label>
@@ -83,7 +83,7 @@
                                                         class='uil uil-google icon-google mr-2'></i>With Google</a>
                                             </div>
                                             <div class="col-6 text-right">
-                                                <a href="{{ url('auth/facebook') }}" class="btn btn-white"><i
+                                                <a href="#" class="btn btn-white"><i
                                                         class='uil uil-facebook mr-2 icon-fb'></i>With Facebook</a>
                                             </div>
                                         </div>

@@ -17,13 +17,13 @@ class CreateTransactionsTable extends Migration
             $table->id();
             $table->string('ts_ref_id');
             $table->string('ref_transaction_type');
-            $table->string('customer_ref_code');
+            $table->foreign('customer_ref_code')->references('customer_ref_id')->on('customers');
             $table->string('amount');
             $table->string('interest');
             $table->string('total_amount');
             $table->string('expected_pay_date');
-            $table->string('user_ref_id');
-            $table->string('store_ref_id');
+            $table->foreign('user_ref_id')->references('id')->on('users');
+            $table->foreign('store_ref_id')->references('store_ref_id')->on('stores');
             $table->timestamps();
         });
     }

@@ -23,8 +23,6 @@ class CreateUsersTable extends Migration
             $table->string('user_ref_id');
             $table->string('phone_number');
             $table->boolean('is_active')->default(0);
-            $table->string('user_role');
-            $table->string('api_token')->nullable;
             $table->rememberToken();
             $table->timestamps();
         });

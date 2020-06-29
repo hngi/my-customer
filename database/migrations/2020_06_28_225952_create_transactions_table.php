@@ -26,10 +26,6 @@ class CreateTransactionsTable extends Migration
             $table->string('store_ref_id');
             $table->timestamps();
         });
-
-        Schema::create('user_transactions', function (Blueprint $table) {
-
-        })
     }
 
     /**

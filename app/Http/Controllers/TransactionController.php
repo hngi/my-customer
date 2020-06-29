@@ -14,8 +14,10 @@ class TransactionController extends Controller
      */
     public function index()
     {
+        $transactions = Transaction::latest()->paginate(5);
+  
+        return view('backend.transactions.index', compact('transactions'));
 
-        return view('backend.transactions.index');
     }
 
     /**

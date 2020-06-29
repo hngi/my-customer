@@ -31,8 +31,9 @@ Route::get('/contact', 'HomeController@contact')->name('contact');
 
 Route::group(['prefix' => 'dashboard', 'middleware' => ['auth']], function () {
     Route::get('/', 'DashboardController@home')->name('dashboard');
+    Route::get('/transactions', 'TransactionController@index')->name('transactions');
+    Route::get('/transactions/{transaction_id}', 'TransactionController@index')->name('transaction.show');
     Route::get('/customers', 'CustomerController@index')->name('customers');
-    Route::get('/transactions', 'CustomerController@index')->name('transactions');
     Route::get('/stores', 'StoreController@index')->name('stores');
     Route::get('/analytics', 'AnalyticsController@index')->name('analytics');
     Route::get('/debts', 'DebtsController@index')->name('debts.reminder');

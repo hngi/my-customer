@@ -19,7 +19,7 @@ use Illuminate\Support\Str;
 
 $factory->define(Transaction::class, function (Faker $faker) {
     return [
-        'ts_ref_id' => 1,
+        'ts_ref_id' => "MC001B",
         'ref_transaction_type' => "purchase",
         'customer_ref_code' => 004,
         'amount' => 20000,

@@ -25,7 +25,13 @@
                                         </div>
 
                                         <h6 class="h5 mb-0 mt-4 text-center">Register</h6>
-
+                                        @if($errors->any()) 
+                                            <ul class="alert alert-danger">
+                                            @foreach ($errors->all() as $error)
+                                                <li>{{ $error }}</li>
+                                            @endforeach
+                                            </ul>
+                                        @endif
                                         <form action="{{ route('register')}} " class="authentication-form" method="POST">
                                             @csrf
                                             <div class="form-group">
@@ -50,7 +56,11 @@
                                                 </div>
                                                 <label class="form-control-label">Password</label>
                                                 <div class="input-group input-group-merge">
-                                                    <input type="password" id="password" name="password" class="form-control" required>
+                                                    <input type="password" id="password" name="password" class="form-control @error('email') is-invalid @enderror" required>
+                                                </div>
+                                                <label class="form-control-label">Confirm Password</label>
+                                                <div class="input-group input-group-merge">
+                                                    <input type="password" id="password_confirmation" name="password_confirmation" class="form-control @error('password_confirmation') is-invalid @enderror" required>
                                                 </div>
                                                 <label class="form-control-label">Phone Number</label>
                                                 <div class="input-group input-group-merge">

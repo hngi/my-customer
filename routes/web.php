@@ -39,7 +39,8 @@ Route::group(['prefix' => 'dashboard', 'middleware' => ['auth']], function () {
     Route::get('/debts', 'DebtsController@index')->name('debts.reminder');
     Route::get('/broadcast', 'BroadcastController@index')->name('broadcast');
     Route::get('/settings', 'SettingsContrller@index')->name('settings');
-    Route::get('/users', 'UserController@index')->name('users');
+    Route::get('/user/all', 'UserController@index')->name('users');
+    Route::get('/user/{id}', 'UserController@view')->name('user.view');
     Route::get('/assistants/add', 'AssistantsController@index')->name('assistants.add');
     Route::get('/complaint/new', 'ComplaintsController@index')->name('complaint.form');
     Route::get('/complaint', 'ComplaintsController@index')->name('complaint.log');

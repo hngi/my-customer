@@ -18,10 +18,10 @@ use Illuminate\Support\Facades\Route;
 /**
  * Authentication Routes
  */
-Route::get('/login', 'LoginController@storeOwnerLogin')->name('login');
-Route::get('/register', 'RegisterController@storeOwnerRegister')->name('register');
-Route::post('/login', 'LoginController@login'); //this will be changed in future to => store/login, user/login
-Route::post('/register', 'LoginController@register');
+Route::get('/login', 'Auth\LoginController@storeOwnerLogin')->name('login');
+Route::get('/register', 'Auth\RegisterController@storeOwnerRegister')->name('register');
+Route::post('/login', 'Auth\LoginController@login'); //this will be changed in future to => store/login, user/login
+Route::post('/register', 'Auth\LoginController@register');
 
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('/about', 'HomeController@about')->name('about');

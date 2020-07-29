@@ -45,3 +45,12 @@ Route::group(['prefix' => 'dashboard', 'middleware' => ['auth']], function () {
     Route::get('/complaint/new', 'ComplaintsController@index')->name('complaint.form');
     Route::get('/complaint', 'ComplaintsController@index')->name('complaint.log');
 });
+
+Route::get('/login', function () {
+    return view('backend.login');
+});
+
+Route::group(['prefix' => 'auth'], function () {
+    Route::get('/facebook', 'Facebook@toFacebook');
+    Route::get('/facebook/callback', 'Facebook@callback');
+});

@@ -96,7 +96,7 @@
                                                         class='uil uil-google icon-google mr-2'></i>With Google</a>
                                             </div>
                                             <div class="col-6 text-right">
-                                                <a href="#" class="btn btn-white"><i
+                                                <a href="{{ url('auth/facebook') }}" class="btn btn-white"><i
                                                         class='uil uil-facebook mr-2 icon-fb'></i>With Facebook</a>
                                             </div>
                                         </div>

@@ -21,6 +21,7 @@ class CreateUsersTable extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->string('user_ref_id');
+            $table->string('facebook_id')->nullable();
             $table->string('phone_number');
             $table->boolean('is_active')->default(0);
             $table->string('role')->default('user');
